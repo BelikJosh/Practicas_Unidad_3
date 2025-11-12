@@ -1,9 +1,10 @@
+// _layout.tsx - YA ESTÁ CORRECTO
 import React from 'react';
 import { Drawer } from 'expo-router/drawer';
 import { GluestackUIProvider, Text, HStack } from '@gluestack-ui/themed';
 import { config } from '@gluestack-ui/config';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { User, Home, FileText, UserCircle } from 'lucide-react-native';
+import { User, Home, FileText, UserCircle, ShoppingCart } from 'lucide-react-native';
 
 export default function Layout() {
   return (
@@ -38,7 +39,7 @@ export default function Layout() {
             }}
           />
           <Drawer.Screen
-            name="profile" // ✅ Agregar pantalla de perfil
+            name="profile"
             options={{
               drawerLabel: '👤 Perfil',
               title: 'Perfil de Usuario',
@@ -62,6 +63,24 @@ export default function Layout() {
               title: 'Josue David Hernández Durón',
               drawerIcon: ({ color, size }) => (
                 <FileText color={color} size={size} />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="display"
+            options={{
+              drawerLabel: '📱 Display',
+              title: 'Pantalla Display',
+              headerTitle: () => (
+                <HStack alignItems="center" space="md">
+                  <ShoppingCart size={24} color="white" />
+                  <Text bold color="$white" size="lg">
+                    Display de Productos
+                  </Text>
+                </HStack>
+              ),
+              drawerIcon: ({ color, size }) => (
+                <ShoppingCart color={color} size={size} />
               ),
             }}
           />
